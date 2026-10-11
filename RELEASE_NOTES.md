@@ -1,4 +1,6 @@
 ﻿### Unreleased
+<!-- FORK-EDIT: Chord Studio native Event ABI correction; upstream release notes are preserved below. -->
+- Fixed the x64 VST3 Event payload size to prevent IEventList.getEvent from overwriting native caller memory.
 
 <!--
 Bullets land here as PRs merge. The maintainer renames this section to

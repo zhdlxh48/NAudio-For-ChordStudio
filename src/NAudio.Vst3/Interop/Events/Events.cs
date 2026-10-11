@@ -108,6 +108,8 @@ internal struct LegacyMIDICCOutEvent
 /// <c>ivstnoteexpression.h</c>) are smaller still.
 /// </para>
 /// </remarks>
+// FORK-EDIT: The original summary above is retained for audit. Its 48-byte union claim is incorrect;
+// use the 24-byte union below. See Vst3EventAbiTests and the ChordStudio independent MIDI A/B probe.
 [StructLayout(LayoutKind.Sequential)]
 internal unsafe struct Event
 {
@@ -129,7 +131,11 @@ internal unsafe struct Event
     /// <see cref="NoteOffEvent"/>, <see cref="PolyPressureEvent"/>, <see cref="DataEvent"/>, etc.
     /// according to <see cref="Type"/>.
     /// </summary>
-    public fixed byte UnionData[48];
+    // FORK-FIX: The SDK x64 Event is 48 bytes TOTAL (24-byte header + 24-byte union).
+    // The native getEvent caller allocates that size; the original 72-byte structure overwrites its memory.
+    // Original declaration retained for comparison:
+    // public fixed byte UnionData[48];
+    public fixed byte UnionData[24];
 }
 
 /// <summary>

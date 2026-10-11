@@ -2,6 +2,10 @@
 
 [![GitHub](https://img.shields.io/github/license/naudio/NAudio)](https://github.com/naudio/NAudio/blob/main/LICENSE) [![Nuget](https://img.shields.io/nuget/v/NAudio)](https://www.nuget.org/packages/NAudio/) [![Build](https://github.com/naudio/NAudio/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/naudio/NAudio/actions/workflows/build.yml)
 
+This fork supplies the local NAudio packages for [ChordStudio](https://github.com/zhdlxh48/ChordStudio). Version `3.1.1-preview.2.chordstudio.2` corrects the x64 VST3 Event layout: a 24-byte payload in a 48-byte structure. `Vst3EventAbiTests` covers the native size and offsets. The original declaration and `FORK-FIX` comments remain in the source. ChordStudio records the source commit, package hashes, patch, and independent native test results in `packages/local`.
+
+The upstream README and MIT license remain below. This fork does not publish packages to NuGet.org.
+
 NAudio is an open source .NET audio library written by [Mark Heath](https://markheath.net)
 
 ![NAudio logo](naudio-logo.png)
